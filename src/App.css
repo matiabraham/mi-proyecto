@@ -1,0 +1,18 @@
+#root {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(190, 188, 188);
+}
+
+header {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carrito-icono {
+  width: 8vw;        /* 8% del ancho de la pantalla */
+  height: auto;      /* Mantiene la proporción */
+  max-width: 50px;   /* No se agranda más de 50px */
+  min-width: 20px;
+}

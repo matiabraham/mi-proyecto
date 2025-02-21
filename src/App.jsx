@@ -1,17 +1,19 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./Header";
-import Main from "../src/components/Main";
-import Footer from "../src/components/Footer";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+import ItemListContainer from "./components/ItemListContainer";
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />
+      <ItemListContainer bienvenida= "Bienvenido a la tienda!" />
       <Main />
       <Footer />
     </>
   );
 }
 
-export default App;
+export default App
