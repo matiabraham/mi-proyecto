@@ -9,7 +9,6 @@ const App = () => {
   return (
     <>
       <Header />
-      <ItemListContainer bienvenida= "Bienvenido a la tienda!" />
       <Main />
       <Footer />
     </>
@@ -17,3 +16,4 @@ const App = () => {
 }
 
 export default App
+  
