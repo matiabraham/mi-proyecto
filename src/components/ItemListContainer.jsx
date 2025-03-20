@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Item from "./item";
 
 const ItemListContainer = () => {
   //Estados
@@ -17,10 +18,17 @@ const ItemListContainer = () => {
   }, []);
 
   //Acciones
-  
 
   //Vista
-  return <div>{JSON.stringify(resultado)}</div>;
+  return (
+    <div className="fluid-grid">
+      {resultado.map((products) => {
+        return (
+          <Item key={products.id} products={products}/> 
+        );
+      })}
+    </div>
+  );
 };
 
 export default ItemListContainer;
