@@ -4,9 +4,9 @@ const Main = () => {
   return (
     <main className="main">
       <h2>home</h2>
-      <ItemListContainer/>
+      <ItemListContainer />
     </main>
   );
-}
+};
 
 export default Main;
