@@ -1,5 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
-import carrito from "../Assets/carrito.svg"
+import { NavLink } from "react-router-dom";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -10,9 +10,7 @@ const NavBar = () => {
         <NavLink to="/categorias/women's clothing" className="barra-nav__link">Ropa Mujer</NavLink>
         <NavLink to="/categorias/jewelery" className="barra-nav__link">Joyería</NavLink>
         <NavLink to="/categorias/electronics" className="barra-nav__link">Electrónica</NavLink>
-        <NavLink to="/carrito" className="barra-nav__link">
-          <img src={carrito} alt="carrito" className="carrito__icono" />
-        </NavLink>
+        <CartWidget />
       </nav>
     </>
   )

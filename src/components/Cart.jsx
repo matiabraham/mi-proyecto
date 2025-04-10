@@ -1,4 +1,10 @@
+import Formulario from "./Formulario";
+
 const Cart = () => {
-  return <div>Cart</div>;
+  return ( 
+  <div>
+    <Formulario />
+  </div>
+  )
 };
 export default Cart;

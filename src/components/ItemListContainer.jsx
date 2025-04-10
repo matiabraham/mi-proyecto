@@ -3,13 +3,10 @@ import Item from "./Item";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
-  //Estados
 
   const [resultado, setResultado] = useState([]);
   const params = useParams();
-  //console.log("ItemListContainer params:", params.id)
 
-  //Efectos
 
   useEffect(() => {
     const url =
@@ -27,9 +24,7 @@ const ItemListContainer = () => {
       });
   }, [params.id]);
 
-  //Acciones
 
-  //Vista
   return (
     <div className="fluid-grid">
       {resultado.map((products) => {
