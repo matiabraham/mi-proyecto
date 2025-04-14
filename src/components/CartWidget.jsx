@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import carrito from "../Assets/carrito.svg";
 import { useContext } from "react";
-import { cartContext } from "./CartContext";
+import { CartContext } from "./CartContext";
 
 const CartWidget = () => {
-  const valorContexto = useContext(cartContext);
+  const valorContexto = useContext(CartContext);
 
   return (
     <NavLink to="/carrito" className="barra-nav__link">

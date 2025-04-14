@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { cartContext } from "./CartContext"; // asegurate del path correcto
+import { CartContext } from "./CartContext"; // asegurate del path correcto
 import toast from "react-hot-toast";
 
 const ProductDetailContainer = () => {
   const [producto, setProducto] = useState({});
   const params = useParams();
-  const valorContexto = useContext(cartContext);
+  const valorContexto = useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${params.id}`)

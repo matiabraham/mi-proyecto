@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import Formulario from "./Formulario";
-import { cartContext } from "./CartContext";
+import { CartContext } from "./CartContext";
 
 const Cart = () => {
-  const valorContexto = useContext(cartContext);
+  const valorContexto = useContext(CartContext);
   console.log(valorContexto);
 
   return (
