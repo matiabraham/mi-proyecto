@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Formulario from "./Formulario";
-import { CartContext } from "./CartContextTemp";
+import { CartContext } from "./CartContext";
 
 const Cart = () => {
   const valorContexto = useContext(CartContext);

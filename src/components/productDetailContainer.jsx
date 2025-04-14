@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { CartContext } from "./CartContextTemp";
+import { CartContext } from "./CartContext";
 import toast from "react-hot-toast";
 
 const ProductDetailContainer = () => {

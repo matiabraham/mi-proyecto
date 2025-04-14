@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer";
 import Cart from "./components/Cart";
 import ProductDetailContainer from "./components/productDetailContainer";
-import CartProvider from "./components/CartContextTemp";
+import CartProvider from "./components/CartContext";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
