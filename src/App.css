@@ -31,6 +31,7 @@ header {
 .barra-nav {
   display: flex;
   gap: 30px;
+  margin-right: 10;
 }
 
 .barra-nav__link {
@@ -61,4 +62,26 @@ header {
 
 .product-card__image {
   width: 100%;
+}
+
+.descripcion-producto {
+    width: 30%;
+    background-color: #f2f2f2;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  
+  
+}
+
+.imagen-producto{
+  width: 200px;
+}
+
+.productos-carrito{
+  display: flex;
+}
+
+.image-carrito {
+  width:100px;
+  height: 100px;
 }

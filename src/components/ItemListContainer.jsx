@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
+import { getProductsUrl } from "../Assets/utils/api";
 
 const ItemListContainer = () => {
 
@@ -9,16 +10,10 @@ const ItemListContainer = () => {
 
 
   useEffect(() => {
-    const url =
-      params.id === undefined
-        ? "https://fakestoreapi.com/products"
-        : `https://fakestoreapi.com/products/category/${encodeURIComponent(
-            params.id
-          )}`;
 
-    fetch(url)
+    fetch(getProductsUrl(params.id))
       .then((res) => res.json())
-      .then((res) => setResultado(res))
+      .then((data) => setResultado(data))
       .catch((error) => {
         console.error("Hubo un error al obtener los productos:", error);
       });
