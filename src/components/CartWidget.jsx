@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import carrito from "../Assets/carrito.svg";
 import { useContext } from "react";
-import { CartContext } from "./CartContext";
+import { CartContext } from "./CartContextTemp";
 
 const CartWidget = () => {
   const valorContexto = useContext(CartContext);

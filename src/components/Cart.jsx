@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Formulario from "./Formulario";
-import { CartContext } from "./CartContext";
+import { CartContext } from "./CartContextTemp";
 
 const Cart = () => {
   const valorContexto = useContext(CartContext);
@@ -17,7 +17,8 @@ const Cart = () => {
             <li className="productos-carrito" key={indice.id}>
               <p>
                 {item.title} - unidad : ${item.price}
-              </p> <img className="image-carrito" src={item.image} alt="" />
+              </p>{" "}
+              <img className="image-carrito" src={item.image} alt="" />
             </li>
           );
         })}
