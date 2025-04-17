@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
 import { getProductsUrl } from "../Assets/utils/api";
+import {} from "firebase/firestore"
+import { app } from "../firebase/firebaseConfig";
+app
+
 
 const ItemListContainer = () => {
 
