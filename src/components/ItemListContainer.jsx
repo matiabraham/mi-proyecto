@@ -1,28 +1,41 @@
 import { useState, useEffect } from "react";
 import Item from "./Item";
 import { useParams } from "react-router-dom";
-import { getProductsUrl } from "../Assets/utils/api";
-import {} from "firebase/firestore"
+import { collection, getDocs, getFirestore, where, query } from "firebase/firestore";
 import { app } from "../firebase/firebaseConfig";
-app
-
 
 const ItemListContainer = () => {
-
   const [resultado, setResultado] = useState([]);
   const params = useParams();
 
-
   useEffect(() => {
+    const db = getFirestore(app);
+    const productosCollection = collection(db, "productos");
+    
+    let miConsulta;
 
-    fetch(getProductsUrl(params.id))
-      .then((res) => res.json())
-      .then((data) => setResultado(data))
-      .catch((error) => {
-        console.error("Hubo un error al obtener los productos:", error);
+    if (params.id === undefined) {
+      miConsulta = getDocs(productosCollection);
+    } else {
+      const miFiltro = query(productosCollection,where("category","==",params.id))
+      miConsulta = getDocs(miFiltro)
+    }
+
+    miConsulta
+      .then((respuesta) => {
+
+        const productosConFormato = []
+
+        respuesta.docs.forEach((doc) => {
+          productosConFormato.push(doc.data())
+        });
+
+        setResultado(productosConFormato)
+      })
+      .catch(() => {
+        console.log("salio todo maaaaaaaal");
       });
   }, [params.id]);
-
 
   return (
     <div className="fluid-grid">

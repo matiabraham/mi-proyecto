@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { CartContext } from "./CartContext";
 import toast from "react-hot-toast";
+import { addDoc, collection, getDocs, getFirestore, query, where, getDoc } from "firebase/firestore";
+import { app } from "../firebase/firebaseConfig";
 
 const ProductDetailContainer = () => {
   const [producto, setProducto] = useState({});
@@ -9,17 +11,40 @@ const ProductDetailContainer = () => {
   const valorContexto = useContext(CartContext);
 
   useEffect(() => {
-    fetch(`https://fakestoreapi.com/products/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setProducto(data))
-      .catch((error) => {
-        console.error("Hubo un error al obtener el producto:", error);
-      });
+
+    const idNumerico = parseInt(params.id);
+    const db = getFirestore(app);
+    const productosCollection = collection(db, "productos");
+    const miFiltro = query(productosCollection,where("id","==",idNumerico))
+    const miConsulta = getDocs(miFiltro)
+    .then((respuesta) => {
+
+        const productoEncontrado = respuesta.docs.map((doc) => {
+          return doc.data()
+        })
+
+        setProducto(productoEncontrado[0]);
+
+        
+    })
+    .catch(() => {
+      console.log("salio todo malll")
+    });
   }, []);
 
   const handleClick = () => {
-    toast.success("Agregado al carrito");
-    valorContexto.handleAgregar(producto);
+    const productoCarrito = producto;
+    const db = getFirestore(app);
+    const carritoCollection = collection(db, "carrito");
+    const query = addDoc(carritoCollection, productoCarrito);
+
+    query
+      .then(() => {
+        valorContexto.handleAgregar(producto);
+        toast.success("Agregado al carrito");
+      })
+      .catch(() => {
+      });
   };
 
   if (!producto) return <p>Cargando producto...</p>;
