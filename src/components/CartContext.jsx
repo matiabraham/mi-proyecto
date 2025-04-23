@@ -18,7 +18,6 @@ const CartProvider = (props) => {
     setCarrito(copia)
     setCantProd(cantProd + 1)
     setTotalPrecio(totalPrecio + producto.price)
-    console.log(copia)
   }
   
 
